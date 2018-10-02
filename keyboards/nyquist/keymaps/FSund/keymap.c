@@ -51,7 +51,8 @@ enum custom_keycodes {
 #define F_TILD G(KC_RBRC) // ~
 #define F_UML KC_RBRC // ¨ (umlaut)
 #define F_SECT S(KC_GRV) // section sign ("law sign") (shifted key below esc)
-
+#define F_GRAVE S(KC_EQL)
+#define F_ACUTE G(KC_EQL)
 
 #define KC_AA KC_LBRC
 #define KC_OE KC_SCLN
@@ -71,33 +72,33 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [_QWERTY] = LAYOUT( \
   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, \
-  KC_ESC,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,        KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC, \
-  KC_TAB,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,        KC_H,    KC_J,    KC_K,    KC_L,    F_FSLH,  F_APOS,  \
+  KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,        KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC, \
+  KC_ESC,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,        KC_H,    KC_J,    KC_K,    KC_L,    KC_OE,   KC_AE,   \
   KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,        KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_LSFT, \
-  KC_LCTL, KC_LGUI, NUMPAD,  KC_LALT, LOWER,   KC_SPC,      KC_SPC,  RAISE,   ALTGR,   KC_RGUI, KC_RCTL, KC_ENT   \
+  KC_LCTL, KC_LGUI, NUMPAD,  KC_LALT, LOWER,   KC_SPC,      KC_SPC,  RAISE,   KC_RALT, KC_RGUI, KC_RCTL, KC_ENT   \
 ),
 
 [_LOWER] = LAYOUT( \
   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, \
-  KC_GRV,  _______, _______, _______, _______, _______,     F_BSLH,  F_FSLH,  F_SBRL,  F_SBRR,  F_EQL,   KC_DEL,  \
-  _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,       F_ABRL,  F_ABRR,  F_RBRL,  F_RBRR,  F_TIMES, F_TILD,  \
+  _______, _______, _______, _______, _______, _______,     F_BSLH,  F_FSLH,  F_SBRL,  F_SBRR,  F_EQL,   KC_DEL,  \
+  KC_GRV,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,       F_ABRL,  F_ABRR,  F_RBRL,  F_RBRR,  F_TIMES, F_TILD,  \
   _______, KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,      KC_F11,  KC_F12,  F_CBRL,  F_CBRR,  F_PLUS,  _______, \
   _______, _______, _______, _______, _______, _______,     _______, _______, _______, _______, _______, _______  \
 ),
 
 [_RAISE] = LAYOUT( \
   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, \
-  F_SECT,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,        KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_DEL,  \
-  _______, S(KC_1), S(KC_2), S(KC_3), S(KC_4), S(KC_5),     F_QUEST, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, F_UML,   \
+  _______, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,        KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_AA,   \
+  F_SECT,  S(KC_1), S(KC_2), S(KC_3), S(KC_4), S(KC_5),     F_QUEST, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, F_APOS,  \
   _______, S(KC_6), G(KC_2), G(KC_3), G(KC_4), G(KC_5),     F_HAT,   KC_HOME, KC_PGDN, KC_PGUP, KC_END,  _______, \
   _______, _______, _______, _______, _______, _______,     _______, _______, _______, _______, _______, _______  \
 ),
 
 [_ADJUST] =  LAYOUT( \
   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, \
-  _______, _______, KC_AA,   _______, _______, _______,     _______, _______, _______, _______, KC_PSCR, _______, \
-  _______, _______, _______, _______, _______, _______,     _______, _______, _______, KC_OE,   _______, _______, \
-  _______, KC_AE,   _______, _______, _______, _______,     _______, KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, _______, \
+  _______, F_UML,   F_GRAVE, F_ACUTE, _______, _______,     _______, _______, _______, _______, KC_PSCR, _______, \
+  _______, _______, _______, _______, _______, _______,     _______, _______, _______, _______, _______, _______, \
+  _______, _______, _______, _______, _______, _______,     _______, KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, _______, \
   _______, _______, _______, _______, _______, _______,     _______, _______, _______, _______, _______, _______  \
 ),
 
@@ -120,15 +121,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   _______, _______, _______, _______, _______, _______,     _______, _______, KC_P4,   KC_P5,   KC_P6,   KC_PPLS, \
   _______, _______, _______, _______, _______, _______,     _______, _______, KC_P1,   KC_P2,   KC_P3,   KC_PENT, \
   _______, _______, _______, _______, _______, _______,     _______, _______, KC_P0,   KC_P0,   KC_PDOT, KC_PENT  \
-),
-
-[_ALTGR] =  LAYOUT( \
-  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, \
-  _______, _______, KC_AA,   _______, _______, _______,     _______, _______, _______, _______, _______, _______, \
-  _______, _______, _______, _______, _______, _______,     _______, _______, _______, KC_OE,   _______, _______, \
-  _______, KC_AE,   _______, _______, _______, _______,     _______, _______, _______, _______, _______, _______, \
-  _______, _______, _______, _______, _______, _______,     _______, _______, _______, _______, _______, _______  \
-),
+)
 
 };
 
